@@ -4,22 +4,38 @@ package com.ucast.pad_adv.jsonObj;
  * Created by pj on 2018/8/24.
  */
 public class BaseAdvResult {
-    private String img;
-    private String video;
+    private String Url;
+    private String IsVideo;
+    //单位为秒
+    private int Duration;
 
-    public String getImg() {
-        return img;
+    public String getUrl() {
+        return Url;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setUrl(String url) {
+        Url = url;
     }
 
-    public String getVideo() {
-        return video;
+
+    public boolean getIsVideo() {
+        if (IsVideo != null && IsVideo.equals("true"))
+            return true;
+        return false;
     }
 
-    public void setVideo(String video) {
-        this.video = video;
+    public void setIsVideo(String isVideo) {
+        IsVideo = isVideo;
+    }
+
+
+    public int getDuration() {
+        if(Duration <= 0)
+            return 5000;
+        return Duration * 1000;
+    }
+
+    public void setDuration(int duration) {
+        Duration = duration;
     }
 }

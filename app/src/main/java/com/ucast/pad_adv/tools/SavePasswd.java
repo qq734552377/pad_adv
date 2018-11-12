@@ -34,6 +34,7 @@ public class SavePasswd {
     public final static String ADVIMGURL = "adv_img_url";//广告的url
     public final static String ADVVIDEOURL = "adv_video_url";//广告vedio的url
     public final static String ADVIMGTITLE = "adv_img_title";//广告的title
+    public final static String ALLADVDATA = "alladvdata";//获取的Data数据
     public final static String MONEYTIME = "money_box_time";//广告的title
     public final static String LASTREQUESTTIME = "last_request_time";//最后设备请求服务器的时间
     public final static String LINKWITHPOS = "link_with_pos";//打印机是否与收银设备连接
@@ -51,8 +52,6 @@ public class SavePasswd {
     private SavePasswd() {
 
     }
-
-    ;
 
     public static SavePasswd getInstace() {
         if (savePasswd == null) {
@@ -86,7 +85,6 @@ public class SavePasswd {
 
         return sp.getString(name,defaultValue);
     }
-
 
     public void savexml(String key, String value) {
 

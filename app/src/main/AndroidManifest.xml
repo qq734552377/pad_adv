@@ -11,7 +11,14 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.USES_POLICY_FORCE_LOCK" />
 
+    <!-- 清除屏保需要的权限 -->
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <!-- 唤醒屏幕需要的权限 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <application
         android:name=".tools.ExceptionApplication"
         android:allowBackup="true"
@@ -31,18 +38,16 @@
         </activity>
         <activity
             android:name=".adv_activity.AdvActivity"
-            android:configChanges="keyboardHidden|orientation"
             android:enabled="true"
-            android:excludeFromRecents="true"
             android:exported="true"
             android:launchMode="singleInstance"
 
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
         <activity
-            android:configChanges="keyboardHidden|orientation"
             android:enabled="true"
-            android:excludeFromRecents="true"
             android:exported="true"
             android:launchMode="singleInstance"
 

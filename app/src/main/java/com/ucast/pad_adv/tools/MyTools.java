@@ -143,7 +143,7 @@ public class MyTools {
 
 
 
-    public static void downloadFileUsetoPrint(final String url, String path) {
+    public static void downloadPic(final String url, String path) {
         if ( !isNetworkAvailable(ExceptionApplication.getInstance())){
             return;
         }
@@ -164,23 +164,7 @@ public class MyTools {
             }
             @Override
             public void onSuccess(File result) {
-                String path = isExitInSdcard(url);
-                if (path != null){
-                    String img_url_base64 = SavePasswd.getInstace().get(SavePasswd.ADVIMGURL);
-                    if (!img_url_base64.equals("")){
-                        String[] base64_urls = img_url_base64.split(",");
-                        StringBuilder sb = new StringBuilder();
-                        for (int i = 0; i < base64_urls.length; i++) {
-                            String one = new String(MyTools.decode(base64_urls[i]));
-                            if (getFileNameByUrl(one).equals(getFileNameByUrl(path)))
-                                one = path;
-                            sb.append(MyTools.encode(one.getBytes()).replace("\n",""));
-                            if (i < img_url_base64.length() - 1 )
-                                sb.append(",");
-                        }
-                        SavePasswd.getInstace().save(SavePasswd.ADVIMGURL,sb.toString());
-                    }
-                }
+
             }
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
@@ -219,21 +203,7 @@ public class MyTools {
             public void onSuccess(File result) {
                 String path = isVideoExitInSdcard(url);
                 if (path != null){
-                    EventBus.getDefault().postSticky(new VideoEvent(path));
-                    String img_url_base64 = SavePasswd.getInstace().get(SavePasswd.ADVVIDEOURL);
-                    if (!img_url_base64.equals("")){
-                        String[] base64_urls = img_url_base64.split(",");
-                        StringBuilder sb = new StringBuilder();
-                        for (int i = 0; i < base64_urls.length; i++) {
-                            String one = new String(MyTools.decode(base64_urls[i]));
-                            if (getFileNameByUrl(one).equals(getFileNameByUrl(path)))
-                                one = path;
-                            sb.append(MyTools.encode(one.getBytes()).replace("\n",""));
-                            if (i < img_url_base64.length() - 1 )
-                                sb.append(",");
-                        }
-                        SavePasswd.getInstace().save(SavePasswd.ADVVIDEOURL,sb.toString());
-                    }
+//                    EventBus.getDefault().postSticky(new VideoEvent(path));
                 }
             }
             @Override
@@ -255,7 +225,7 @@ public class MyTools {
         String path = Config.PICPATHDIR + "/" + fileName;
         File file = new File(path);
         if (!file.exists()){
-            downloadFileUsetoPrint(url,path);
+            downloadPic(url,path);
             return null;
         }else{
             return path;

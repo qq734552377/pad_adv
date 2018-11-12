@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.ucast.pad_adv.adv_activity.AdvActivity;
+import com.ucast.pad_adv.avi_activity.AviActivity;
 import com.ucast.pad_adv.tools.ExceptionApplication;
 
 /**
@@ -16,8 +17,8 @@ public class StartBrocast extends BroadcastReceiver {
         Intent ootStartIntent = new Intent(context, UpdateService.class);
         ootStartIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startService(ootStartIntent);
-        Intent start_adv_intent = new Intent(ExceptionApplication.getInstance(), AdvActivity.class);
-        start_adv_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);  //注意，必须添加这个标记，否则启动会失败
-        ExceptionApplication.getInstance().startActivity(start_adv_intent);
+//        Intent start_adv_intent = new Intent(ExceptionApplication.getInstance(), AviActivity.class);
+//        start_adv_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);  //注意，必须添加这个标记，否则启动会失败
+//        ExceptionApplication.getInstance().startActivity(start_adv_intent);
     }
 }

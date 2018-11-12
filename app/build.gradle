@@ -5,7 +5,7 @@ android {
     defaultConfig {
         applicationId "com.ucast.pad_adv"
         minSdkVersion 17
-        targetSdkVersion 24
+        targetSdkVersion 17
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -29,7 +29,7 @@ dependencies {
     implementation 'de.greenrobot:eventbus:3.0.0-beta1'
     implementation 'com.alibaba:fastjson:1.1.58.android'
     implementation 'org.xutils:xutils:3.3.26'
-    implementation 'com.youth.banner:banner:1.4.9'  //最新版本
+    implementation 'com.youth.banner:banner:1.4.10'  //最新版本
     implementation "com.github.bumptech.glide:glide:3.7.0"
     implementation 'com.facebook.fresco:fresco:0.12.0'
     implementation files('libs/netty-all-4.1.6.Final.jar')
